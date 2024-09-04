@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import { Loader, Card, FormField } from "../components";
 
 const RenderCards = ({ data, title }) => {
@@ -12,6 +11,8 @@ const RenderCards = ({ data, title }) => {
 };
 
 const Home = () => {
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
   const [loading, setLoading] = useState(false);
   const [allPosts, setAllPosts] = useState(null);
 
@@ -23,7 +24,7 @@ const Home = () => {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8080/api/v1/post", {
+        const response = await fetch(`${apiUrl}/api/v1/post`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
