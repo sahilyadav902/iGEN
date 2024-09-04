@@ -35,6 +35,7 @@ const CreatePost = () => {
         setForm({ ...form, photo: data.photo });
       } catch (error) {
         alert(error);
+        console.log(error);
       } finally {
         setGeneratingImg(false);
       }
